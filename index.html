@@ -1,0 +1,176 @@
+<html>
+   <head>
+      <style>
+         * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #f0f4ff, #e2e8f0); /* soft background */
+  padding: 40px 20px;
+  margin:auto 0;
+  text-align:center;
+  color: #333;
+}
+         .gallery {
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center;  
+  flex-wrap: wrap;
+  width:500px;
+  max-width:100%;
+}
+
+.photo {
+  position: relative;
+  width:20%;         /* 4 columns */
+  aspect-ratio: 4 / 5; /* keeps photo ratio */
+  overflow: hidden;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border:6px solid purple;
+}
+
+/* Gradient overlay */
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 150, 0.45),
+    rgba(0, 200, 255, 0.45)
+  );
+  pointer-events: none;
+}
+
+
+/* Default gradient */
+.photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 150, 0.4),
+    rgba(0, 200, 255, 0.4)
+  );
+  opacity: 0.6;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Red on hover */
+.photo:hover::after {
+  background: rgba(255, 0, 0, 0.6);
+}
+
+
+
+.action-btn {
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  background: #ff0000;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.action-btn:hover {
+  background: #cc0000;
+  transform: translateY(-1px);
+}
+
+.info-text {
+   overflow: hidden;
+  opacity: 0;
+  margin-top: 10px;
+  padding: 14px;
+  font-size: 13px;
+  color:#2E312F;
+  background: rgba(255, 0, 0, 0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.info-text.show {
+  max-height: 100px;
+  opacity: 1;
+}
+
+
+
+      </style>
+      <title></title>
+   </head>
+   <body>
+      <h1>True Love Never Goes.</h1>
+      <br/><br/>
+      <div class="gallery">
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+
+  <div class="photo"><img src="img1.jpg"></div>
+  <div class="photo"><img src="img1.jpg"></div>
+</div>
+<br/><br/>
+<button class="action-btn">My Love</button>
+
+<p class="info-text">
+   As you are one, I see you in different country.
+ </p>
+<br/><br/>
+ <footer class="site-footer">
+   <p>Follow me on 
+     <a href="https://x.com/PageOfMoloy" target="_blank" rel="noopener noreferrer">
+       Twitter
+     </a>
+   </p>
+ </footer>
+ 
+   </body>
+
+
+
+   <script>
+      document.querySelectorAll('.action-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const text = button.nextElementSibling;
+          text.classList.toggle('show');
+        });
+      });
+    </script>
+    
+</html>
